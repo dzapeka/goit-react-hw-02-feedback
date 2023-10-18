@@ -5,8 +5,7 @@ export default class Statistics extends Component {
   render() {
     const { good, neutral, bad } = this.props;
     const total = good + neutral + bad;
-    const positiveFeedback =
-      total > 0 ? Math.round((good / (good + bad)) * 100) : 0;
+    const positiveFeedback = total > 0 ? Math.round((good / total) * 100) : 0;
 
     return (
       <>

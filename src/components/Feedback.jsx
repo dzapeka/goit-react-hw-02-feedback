@@ -9,25 +9,11 @@ class Feedback extends Component {
     positiveFeedback: 0,
   };
 
-  countTotalFeedback() {
-    this.setState(state => ({
-      total: state.good + state.neutral + state.bad,
-    }));
-  }
-
-  countPositiveFeedbackPercentage() {
-    this.setState(state => ({
-      positiveFeedback: Math.round((state.good / state.total) * 100),
-    }));
-  }
-
   handleUpdateFeedback = event => {
     const feedback = event.target.dataset.feedback;
     this.setState(state => ({
       [feedback]: state[feedback] + 1,
     }));
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
   };
 
   render() {
